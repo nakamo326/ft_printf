@@ -6,7 +6,7 @@
 #    By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/04 09:09:02 by ynakamot          #+#    #+#              #
-#    Updated: 2021/11/24 19:48:01 by ynakamot         ###   ########.fr        #
+#    Updated: 2021/11/24 19:59:55 by ynakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,8 @@ $(NAME): $(LIBFT) $(OBJECTS)
 %.o: %.c
 	gcc $(CFLAGS) -c $< -o $@ -I. -I./libft
 
-test: $(LIBFT)
-	gcc -g main.c $(SRCFILE) -I. -I./libft -L./libft -lft -o test.out
+test: $(NAME)
+	gcc -g main.c -I. -I./libft -L. -lftprintf -o test.out
 
 clean:
 	$(MAKE) clean -C ./libft

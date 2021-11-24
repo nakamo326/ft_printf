@@ -1,3 +1,4 @@
 .out
 src/*.o
 *.a
+test.out
