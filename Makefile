@@ -3,15 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ynakamot <ynakamot@student.42tokyo.jp>     +#+  +:+       +#+         #
+#    By: ynakamot <ynakamot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/04 09:09:02 by ynakamot          #+#    #+#              #
-#    Updated: 2020/11/15 10:58:26 by ynakamot         ###   ########.fr        #
+#    Updated: 2021/11/24 19:48:01 by ynakamot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CFLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
+CFLAGS = -Wall -Wextra -Werror
+LIBFT = ./libft/libft.a
 
 SRCFILE =	src/ft_printf.c \
 			src/check_format.c \
@@ -21,22 +22,22 @@ SRCFILE =	src/ft_printf.c \
 			src/output_hex.c
 
 
-
 OBJECTS = $(SRCFILE:.c=.o)
 
 all: $(NAME)
 
-libft:
-	$(MAKE) bonus -C ./libft
+$(LIBFT):
+	git submodule init && git submodule update
+	$(MAKE) -C ./libft
 
-$(NAME): libft $(OBJECTS)
+$(NAME): $(LIBFT) $(OBJECTS)
 	cp libft/libft.a $(NAME)
 	ar rcs $(NAME) $(OBJECTS)
 
 %.o: %.c
 	gcc $(CFLAGS) -c $< -o $@ -I. -I./libft
 
-test: libft
+test: $(LIBFT)
 	gcc -g main.c $(SRCFILE) -I. -I./libft -L./libft -lft -o test.out
 
 clean:
