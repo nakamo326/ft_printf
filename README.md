@@ -1,5 +1,13 @@
 # ft_printf
-recode of libc printf  
-  
-This repository contains Libft as submodule.  
-Please do "git submodule init && git submodule update" before compile.
+### recode of libc's printf
+
+
+
+## Installation
+
+```bash
+git clone git@github.com:nakamo326/ft_printf.git
+cd ft_printf
+make
+```
+
