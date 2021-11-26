@@ -11,3 +11,20 @@ cd ft_printf
 make
 ```
 
+## Feature
+- Conversion specifiers
+  - d, i as integer
+  - %, C as char
+  - s as string
+  - u as unsigned int
+  - p as pointer
+  - x, X as unsigned hexadecimal
+
+- Flags
+  - "-" as left justify
+  - "0" as zero padded
+  - Field width and Precision
+  - "*" for field width and precision
+
+  this printf doesn't manage line buffer.
+
