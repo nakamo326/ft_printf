@@ -41,5 +41,13 @@ int main()
 	printf("%d\n",ft_printf("%c is pointed %p. %d is %s.\n",c,p,100,"hundred"));
 	printf("%d\n",printf("%c is pointed %p. %d is %s.\n",c,p,100,"hundred"));
 
+	// bonus
+	printf("%d\n",ft_printf("%010d\n",123));
+	printf("%d\n",printf("%010d\n",123));
+	printf("%d\n",ft_printf("%-10d\n",123));
+	printf("%d\n",printf("%-10d\n",123));
+	printf("%d\n",ft_printf("%-2147483646d\n",123));
+	printf("%d\n",printf("%-2147483646d\n",123));
+
 	return 0;
 }
